@@ -25,7 +25,7 @@ export default function SignIn() {
   };
 
   if (isLoginingStatus === 'success') {
-    navigate(Routes.transactions)
+    navigate(Routes.users)
   }
 
   const formik = useFormik({

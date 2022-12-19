@@ -16,11 +16,6 @@ function Sidebar() {
   const activeLink = window.location.pathname;
 
   const SidebarLinks = [
-    {
-      icon: <TransactionIcon />,
-      title: "Transaction",
-      link: Routes.transactions,
-    },
     { icon: <FillUserAltIcon />, title: "Users", link: Routes.users },
     { icon: <PeopleAltIcon />, title: "Agents", link: Routes.agents },
   ];

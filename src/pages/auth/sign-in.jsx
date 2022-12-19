@@ -87,7 +87,7 @@ export default function SignIn() {
             }}
             onBlur={formik.handleBlur}
             value={formik.values.email}
-            placeholder="Superadmin@Lifesaver.com"
+            placeholder="admin@email.com"
             className="input password bg-inherit min-w-full"
           />
 

@@ -9,9 +9,9 @@ import {
   TableHeading,
   TableBody,
   TableRow,
-} from "../components/common/table-components";
+} from "../components/common/table/table-components";
 import Button from "../components/common/button";
-import Table from "../components/common/table";
+import { Table, MobileTable } from "../components/common/table/table";
 import { Modal, ModalBody, ModalHeader } from "../components/common/modal";
 import { registerAccountAction } from "../store/account/account.actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -86,9 +86,9 @@ function Agents() {
         </div>
       </div>
 
-      <div className="w-full pt-10">
+      <div className="w-full pt-4 md:pt-10">
         <Table
-          className="w-full"
+          className="w-full hidden md:block"
           isLoading={loadingAllAgentsStatus === "loading"}
         >
           <TableHeading
@@ -131,6 +131,56 @@ function Agents() {
             <div className="center min-h-[30vh]">No Agents Yet</div>
           )}
         </Table>
+
+        <MobileTable
+          className="p-4 card md:hidden"
+          isLoading={loadingAllAgentsStatus === "loading"}
+        >
+          {allAgents.length > 0 ? (
+            allAgents.map((item, idx) => {
+              return (
+                <div className="border-b py-3 flex flex-col gap-2" key={idx}>
+                  <div>
+                    <span>Agent Name: </span>
+                    <span>{item?.agent_name}</span>
+                  </div>
+
+                  <div>
+                    <span>Agent Email: </span>
+                    <span>{item?.email}</span>
+                  </div>
+
+                  <div>
+                    <span>Location: </span>
+                    <span>{item?.location} </span>
+                  </div>
+
+                  <div>
+                    <span>Hotline: </span>
+                    <span>{item?.hotline}</span>
+                  </div>
+
+                  <div>
+                    <span>Operation Status: </span>
+                    <span>
+                      <StatusLabel
+                        className={`${
+                          item?.status === "active"
+                            ? "bg-success-soft text-success-dark"
+                            : "bg-danger-10 text-error"
+                        }`}
+                      >
+                        {item?.status}
+                      </StatusLabel>
+                    </span>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="center min-h-[30vh]">No Agents Yet</div>
+          )}
+        </MobileTable>
       </div>
 
       <Modal state={addNewUserModal}>

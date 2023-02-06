@@ -8,9 +8,9 @@ import {
   TableHeading,
   TableBody,
   TableRow,
-} from "../components/common/table-components";
+} from "../components/common/table/table-components";
 import Button from "../components/common/button";
-import Table from "../components/common/table";
+import {Table, MobileTable} from "../components/common/table/table";
 import { Modal, ModalBody, ModalHeader } from "../components/common/modal";
 import { registerAccountAction } from "../store/account/account.actions";
 import { useDispatch, useSelector } from "react-redux";

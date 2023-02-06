@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "../components/common/table/table-components";
 import Button from "../components/common/button";
-import {Table, MobileTable} from "../components/common/table/table";
+import { Table, MobileTable } from "../components/common/table/table";
 import { Modal, ModalBody, ModalHeader } from "../components/common/modal";
 import { registerAccountAction } from "../store/account/account.actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -107,6 +107,41 @@ function Users() {
             <div className="center min-h-[30vh]">No Users Yet</div>
           )}
         </Table>
+
+        <MobileTable
+          className="p-4 card md:hidden"
+          isLoading={loadingAllUsersStatus === "loading"}
+        >
+          {allUsers.length > 0 ? (
+            allUsers.map((item, idx) => {
+              return (
+                <div className="border-b py-3 flex flex-col gap-2" key={idx}>
+                  <div>
+                    <span>Card ID: </span>
+                    <span>{item?.card_id}</span>
+                  </div>
+
+                  <div>
+                    <span>Email: </span>
+                    <span>{item?.email}</span>
+                  </div>
+
+                  <div>
+                    <span>Balance: </span>
+                    <span>{item?.balance} </span>
+                  </div>
+
+                  <div>
+                    <span>Phone Number: </span>
+                    <span>{item?.phone_number}</span>
+                  </div>
+                </div>
+              );
+            })
+          ) : (
+            <div className="center min-h-[30vh]">No Agents Yet</div>
+          )}
+        </MobileTable>
       </div>
 
       <Modal state={addNewUserModal}>

@@ -10,22 +10,22 @@ import FillUserAltIcon from "../../assets/icons/fill-user-alt";
 import PeopleAltIcon from "../../assets/icons/people-alt";
 import { Routes } from "../../routes/Routes";
 
+export const SidebarLinks = [
+  { icon: <FillUserAltIcon />, title: "Users", link: Routes.users },
+  { icon: <PeopleAltIcon />, title: "Agents", link: Routes.agents },
+];
+
 function Sidebar() {
   const navigate = useNavigate();
 
   const activeLink = window.location.pathname;
-
-  const SidebarLinks = [
-    { icon: <FillUserAltIcon />, title: "Users", link: Routes.users },
-    { icon: <PeopleAltIcon />, title: "Agents", link: Routes.agents },
-  ];
 
   const changeRoute = (title, link) => {
     navigate(link);
   };
 
   return (
-    <div className="w-52 xl:w-64 h-screen fixed z-20">
+    <div className="w-52 xl:w-64 h-screen z-20 hidden md:block fixed">
       <div className="py-4 mb-8 xl:mb-10 xl:py-6 px-8 xl:px-10 start w-[140px] xl:w-[180px] h-auto">
         {/* <Image src={LightLogo} alt="LifeSaver" /> */}
       </div>

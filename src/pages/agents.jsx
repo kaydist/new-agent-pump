@@ -56,14 +56,6 @@ function Agents() {
         <h2 className="table-title">All Pump Agents</h2>
 
         <div className="end space-x-3 xl:space-x-5">
-          <SearchBar className="w-64 xl:w-80" />
-        </div>
-      </div>
-
-      <div className="between pt-8">
-        <div className="space-x-3 start"></div>
-
-        <div className="end space-x-3 xl:space-x-5">
           <Button
             onClick={() => {
               setAddNewUserModal(!addNewUserModal);
@@ -85,6 +77,15 @@ function Agents() {
           </Button>
         </div>
       </div>
+
+      {/* <div className="between pt-8">
+        <div className="space-x-3 start"></div>
+
+        <div className="end space-x-3 xl:space-x-5">
+         
+          <SearchBar className="w-64 xl:w-80" />
+        </div>
+      </div> */}
 
       <div className="w-full pt-4 md:pt-10">
         <Table

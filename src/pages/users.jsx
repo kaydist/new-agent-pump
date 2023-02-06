@@ -16,6 +16,7 @@ import { registerAccountAction } from "../store/account/account.actions";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../components/common/spinner";
 import { addUserAction, getAllUsersAction } from "../store/users/users.actions";
+import { currencyFormat } from "../utils/formatter";
 
 function Users() {
   const [addNewUserModal, setAddNewUserModal] = useState(false);
@@ -43,14 +44,7 @@ function Users() {
         <h2 className="table-title">All Pump Users</h2>
 
         <div className="end space-x-3 xl:space-x-5">
-          <SearchBar className="w-64 xl:w-80" />
-        </div>
-      </div>
-
-      <div className="between pt-8">
-        <div className="space-x-3 start"></div>
-
-        <div className="end space-x-3 xl:space-x-5">
+          {" "}
           <Button
             onClick={() => {
               setAddNewUserModal(!addNewUserModal);
@@ -73,6 +67,14 @@ function Users() {
         </div>
       </div>
 
+      {/* <div className="between pt-8">
+        <div className="space-x-3 start"></div>
+
+        <div className="end space-x-3 xl:space-x-5">
+          <SearchBar className="w-64 xl:w-80" />
+        </div>
+      </div> */}
+
       <div className="w-full pt-10">
         <Table
           className="w-full hidden md:block"
@@ -93,7 +95,7 @@ function Users() {
                     <td className="xl:w-[12%]">{item?.email}</td>
 
                     <td className="xl:w-[12%]">
-                      {`\u20A6`} {item?.balance}
+                      {currencyFormat(item?.balance)}
                     </td>
 
                     <td className="w-[10%]">
@@ -128,12 +130,12 @@ function Users() {
 
                   <div>
                     <span>Balance: </span>
-                    <span>{item?.balance} </span>
+                    <span>{currencyFormat(item?.balance)} </span>
                   </div>
 
                   <div>
                     <span>Phone Number: </span>
-                    <span>{item?.phone_number}</span>
+                    <span>{item?.phoneNumber}</span>
                   </div>
                 </div>
               );

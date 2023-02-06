@@ -75,7 +75,7 @@ function Users() {
 
       <div className="w-full pt-10">
         <Table
-          className="w-full"
+          className="w-full hidden md:block"
           isLoading={loadingAllUsersStatus === "loading"}
         >
           <TableHeading
